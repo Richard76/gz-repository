@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: sales
+    description: everything to do with sales
+    tests:
+      - unique:
+          column_name: "(orders_id || '-' || products_id)"
+
+    columns:
+      - name: orders_id
+        description: order id - every order has one
+        tests:
+          - not_null
+
+      - name: products_id
+        description: the product id in the order
+        tests:
+          - not_null
+
+      - name: qty
+        description: the quantity of products in the order
+        tests:
+          - not_null
+
+      - name: turnover
+        description: the total revenue for the order
+        tests:
+          - not_null
+
+      - name: purchase_cost
+        description: the total purchase cost for the order
+        tests:
+          - not_null
+
+      - name: margin
+        description: the profit margin for each order
+        tests:
+          - not_null
